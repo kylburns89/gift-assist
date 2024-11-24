@@ -17,7 +17,7 @@ export async function searchProducts(query: string, maxPrice: number): Promise<S
   }
 
   console.log('Searching for products:', query, 'under', maxPrice);
-  const searchQuery = `${query} buy online price under $${maxPrice}`;
+  const searchQuery = `${query} buy online price under $${maxPrice} shopping site`;
   const url = `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_API_KEY}&cx=${GOOGLE_CX}&q=${encodeURIComponent(searchQuery)}`;
 
   try {
