@@ -42,9 +42,11 @@ npm install
 yarn install
 ```
 
-3. Create a `.env` file in the root directory and add your Together AI API key:
+3. Create a `.env` file in the root directory and add your Together AI API key and Google Search API key and CX:
 ```env
-TOGETHER_API_KEY=your_api_key_here
+NEXT_PUBLIC_TOGETHER_API_KEY=
+NEXT_PUBLIC_GOOGLE_API_KEY=
+NEXT_PUBLIC_GOOGLE_CX=
 ```
 
 4. Start the development server:
