@@ -33,7 +33,7 @@ Example response format:
 
 IMPORTANT: Your response must start with [ and end with ]. Do not include any other text.`;
 
-  const userPrompt = `Generate 6 thoughtful gift suggestions based on:
+  const userPrompt = `Generate 6 thoughtful gift suggestions based on the following. Please be creative and provide a variety of options but keep them within the budget range and relevant to the interests and preferences:
 - Relationship: ${formData.relationship}
 - Age: ${formData.age}
 - Interests: ${formData.interests}
