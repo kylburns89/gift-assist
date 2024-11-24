@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 20%;
+    --radius: 0.75rem;
+  }
+  
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 80%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    background-image: 
+      radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 0% 0%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.025) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-shine {
+    animation: shine 3s linear infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(2deg);
+    }
+  }
+
+  @keyframes shine {
+    0% {
+      background-position: 200% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .7;
+    }
+  }
+}
+
+@layer components {
+  .festive-card {
+    @apply relative overflow-hidden rounded-xl border border-border/50 bg-card p-6 shadow-lg transition-all duration-500 hover:shadow-xl hover:scale-[1.02] hover:border-accent/30;
+    background-image: linear-gradient(45deg, 
+      transparent 0%,
+      rgba(0, 0, 0, 0.03) 25%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.03) 75%,
+      transparent 100%
+    );
+    background-size: 200% auto;
+  }
+
+  .festive-card:hover {
+    background-position: right center;
+  }
+
+  .festive-input {
+    @apply rounded-lg border border-border/50 bg-background px-4 py-2.5 
+    focus:border-accent/50 focus:ring-2 focus:ring-accent/20 
+    hover:border-accent/30 hover:bg-background
+    transition-all duration-300;
+  }
+
+  .festive-label {
+    @apply text-base font-medium text-foreground mb-2.5 inline-block;
+  }
+
+  .festive-slider {
+    @apply relative h-2 w-full rounded-full bg-secondary/50 overflow-hidden;
+  }
+
+  .festive-slider::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 animate-shine;
+    background-size: 200% auto;
+  }
+
+  .festive-slider-thumb {
+    @apply h-5 w-5 rounded-full border-2 border-primary/50 bg-background shadow-md transition-all hover:scale-110;
+  }
+}
